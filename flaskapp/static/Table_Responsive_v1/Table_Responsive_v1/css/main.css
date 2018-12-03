@@ -150,7 +150,7 @@ table tbody tr:last-child {
   border: 0;
 }
 table td, table th {
-  text-align: left;
+  text-align: center;
 }
 table td.l, table th.l {
   text-align: right;
@@ -191,7 +191,7 @@ tbody tr:hover {
 
 .column1 {
   width: 260px;
-  padding-left: 40px;
+  padding-left: 10px;
 }
 
 .column2 {
@@ -204,22 +204,18 @@ tbody tr:hover {
 
 .column4 {
   width: 110px;
-  text-align: right;
 }
 
 .column5 {
   width: 170px;
-  text-align: right;
 }
 
 .column6 {
   width: 222px;
-  text-align: right;
   /* padding-right: 62px; */
 }
 .column7{
   width: 222px;
-  text-align: right;
 }
 
 
@@ -274,11 +270,7 @@ tbody tr:hover {
     content: "Total";
   }
 
-  .column4,
-  .column5,
-  .column6 {
-    text-align: left;
-  }
+  
 
   .column4,
   .column5,
