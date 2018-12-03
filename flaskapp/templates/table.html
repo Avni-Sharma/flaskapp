@@ -1,0 +1,57 @@
+{% extends "main.html" %}
+{% block body %}
+
+<body>          
+                <div class="avni" >
+                    <div class="container" >
+                        <div class="wrap-table100">
+                            <div class="table100">
+                                <table>
+                                    <thead>
+                                        <tr class="table100-head">
+                                            <th class="column1">CVE</th>
+                                            <th class="column2">SEVERITY</th>
+                                            <th class="column3">NAMESPACE</th>
+                                            <th class="column4">PACKAGE</th>
+                                            <th class="column5"> FIXED-IN VERSION</th>
+                                            <th class="column6">CURRENT VERSION</th>
+                                            <th class="column7">LINK</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        {% for line in cve_list %}
+                                        <tr>
+                                            {%for el in line %}
+                                                {% if loop.index==loop.length %}
+                                                    <td><a href = "{{el}}">{{el}}</a></td>
+                                                {% else %}
+                                                    <td>{{el}}</td>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+            
+            </div>
+                
+            
+            <!--===============================================================================================-->	
+                <script src="static/Table_Responsive_v1/Table_Responsive_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+            <!--===============================================================================================-->
+                <script src="static/Table_Responsive_v1/Table_Responsive_v1/vendor/bootstrap/js/popper.js"></script>
+                <script src="static/Table_Responsive_v1/Table_Responsive_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+            <!--===============================================================================================-->
+                <script src="static/Table_Responsive_v1/Table_Responsive_v1/vendor/select2/select2.min.js"></script>
+            <!--===============================================================================================-->
+                <script src="static/Table_Responsive_v1/Table_Responsive_v1/js/main.js"></script>
+            
+
+
+
+</body>
+{% endblock %}
