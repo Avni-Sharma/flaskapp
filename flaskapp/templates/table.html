@@ -13,8 +13,8 @@
                                             <th class="column2">SEVERITY</th>
                                             <th class="column3">NAMESPACE</th>
                                             <th class="column4">PACKAGE</th>
-                                            <th class="column5"> FIXED-IN VERSION</th>
-                                            <th class="column6">CURRENT VERSION</th>
+                                            <th class="column5">CURRENT VERSION</th>
+                                            <th class="column6">FIXED-IN VERSION</th>
                                             <th class="column7">LINK</th>
                                         </tr>
                                     </thead>
@@ -23,10 +23,11 @@
                                         {% for line in cve_list %}
                                         <tr>
                                             {%for el in line %}
+                                            {% set column = 'column' %}
                                                 {% if loop.index==loop.length %}
-                                                    <td><a href = "{{el}}">{{el}}</a></td>
+                                                    <td class={{column}}{{loop.index}}><a href = "{{el}}">{{el}}</a></td>
                                                 {% else %}
-                                                    <td>{{el}}</td>
+                                                    <td class={{column}}{{loop.index}}>{{el}}</td>
                                                 {% endif %}
                                             {% endfor %}
                                         </tr>

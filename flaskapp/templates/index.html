@@ -3,7 +3,8 @@
 <body>
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" method ="POST">
+			<img src="static/images/loader.gif" id="gif" style="display: block; margin: 0 auto; width: 200px; visibility: hidden;">
+			<form class="contact100-form validate-form" id="login_form"  method ="POST">
 				<span class="contact100-form-title">
 					Insert an image
 				</span>
@@ -49,7 +50,6 @@
 						</button>
 					</div>
 				</div> 
-
 			</form>
 		</div>
 	</div>
@@ -85,6 +85,11 @@
   gtag('config', 'UA-23581568-13');
 </script>
 
+<script type="text/javascript">
+	$('#login_form').submit(function() {
+    $('#gif').css('visibility', 'visible');
+});
+</script>
 </body>
 
 {% endblock %}

@@ -1,8 +1,9 @@
-from flask import Flask, request, redirect, render_template, url_for
+from flask import Flask, request, redirect, render_template, url_for, session
 import os
 import subprocess as sp
 import json
 app = Flask(__name__)
+app.secret_key = b'\xc0I\xdb\x8eq\x00"\',-W\xa2\xf1\xab\x06u'
 
 class cd:
     """Context manager for changing the current working directory"""
@@ -47,7 +48,8 @@ def homepage():
 
 @app.route('/table')
 def table():
-    return render_template('table.html',cve_list = request.args['cve_list'])
+    cve_list = session['cve_list']
+    return render_template('table.html',cve_list = cve_list)
 
 
 @app.route('/', methods=['POST'])
@@ -56,7 +58,8 @@ def inputform():
     with cd("~/paclair"):
         response = sp.check_output(["paclair","--conf","conf/conf.yml", "Docker",text,"analyse", "--output-report", "term"])
     cve_list = process_response(response.decode('utf-8'))
-    return redirect(url_for('table',cve_list = cve_list))
+    session['cve_list'] = cve_list
+    return redirect(url_for('table'))
 
 if __name__ == "__main__":
     app.run()
