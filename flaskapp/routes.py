@@ -58,8 +58,9 @@ def inputform():
     with cd("~/paclair"):
         response = sp.check_output(["paclair","--conf","conf/conf.yml", "Docker",text,"analyse", "--output-report", "term"])
     cve_list = process_response(response.decode('utf-8'))
-    session['cve_list'] = cve_list
-    return redirect(url_for('table'))
+    #session['cve_list'] = cve_list
+    return render_template('table.html',cve_list = cve_list)
+    #return redirect(url_for('table'))
 
 if __name__ == "__main__":
     app.run()
